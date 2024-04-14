@@ -1,0 +1,12 @@
+server:
+  port: 8081
+app:
+  user: user3
+  pass: user3
+springdoc:
+  packagesToScan: com.curso.controller
+  pathsToMatch: /**
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka

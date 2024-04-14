@@ -1,0 +1,11 @@
+server:
+  port: 0 # Puerto aleatorio para ejecutar multiples instancias en local
+springdoc:
+  packagesToScan: com.curso.controller
+  pathsToMatch: /**
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    instance-id: "${spring.application.name}:${random.value}" # Nombre de instancia aleatorio para ejecutar multiples instancias co un unico fichero de configuracion
