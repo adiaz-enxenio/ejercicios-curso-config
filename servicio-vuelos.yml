@@ -1,5 +1,5 @@
 server:
-  port: 8081
+  port: ${APP_PORT:8081}
 springdoc:
   packagesToScan: com.vuelo.controller
   pathsToMatch: /**
@@ -28,4 +28,3 @@ eureka:
   instance:
     instance-id: "${spring.application.name}:${random.value}" # Nombre de instancia aleatorio para ejecutar multiples instancias co un unico fichero de configuracion
     hostname: localhost
-    nonSecurePort: ${EUREKA_PORT:8081}
