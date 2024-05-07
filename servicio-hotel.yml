@@ -1,0 +1,30 @@
+server:
+  port: ${APP_PORT:8082}
+springdoc:
+  packagesToScan: com.hotel.controller
+  pathsToMatch: /**
+spring:
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        ddl-auto: none
+        #propiedades para que hibernate cree adecuadamente las instrucciones SQL
+        naming:
+          implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+          physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+  datasource:
+    url: jdbc:postgresql://host.docker.internal:5432/agencia_viajes
+    username: ib
+    password: ib
+  sql:
+    init:
+      mode: always
+      continue-on-error: true
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://host.docker.internal:8761/eureka
+  instance:
+    instance-id: "${spring.application.name}:${random.value}" # Nombre de instancia aleatorio para ejecutar multiples instancias co un unico fichero de configuracion
+    hostname: localhost
