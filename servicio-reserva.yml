@@ -27,4 +27,4 @@ eureka:
       defaultZone: http://host.docker.internal:8761/eureka
   instance:
     instance-id: "${spring.application.name}:${random.value}" # Nombre de instancia aleatorio para ejecutar multiples instancias co un unico fichero de configuracion
-    hostname: localhost
+    hostname: host.docker.internal
