@@ -14,7 +14,7 @@ spring:
           implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
           physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
   datasource:
-    url: jdbc:postgresql://host.docker.internal:5432/agencia_viajes
+    url: jdbc:postgresql://${HOST_IP:127.0.0.1}:5432/agencia_viajes
     username: ib
     password: ib
   sql:
@@ -24,7 +24,7 @@ spring:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://host.docker.internal:8761/eureka
+      defaultZone: http://${HOST_IP:127.0.0.1}:8761/eureka
   instance:
     instance-id: "${spring.application.name}:${random.value}" # Nombre de instancia aleatorio para ejecutar multiples instancias co un unico fichero de configuracion
     ip-address: ${HOST_IP:127.0.0.1}
